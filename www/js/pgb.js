@@ -31,3 +31,9 @@ function checkConnection() {
  
     alert('Connection type: ' + states[networkState]);
 }
+
+document.addEventListener("deviceready", onDeviceReady, false);
+
+function onDeviceReady() {
+	$('#acctext').text(navigator.accelerometer);
+}
