@@ -4,8 +4,9 @@ function init() {
 
 function onDeviceReady() {
 	navigator.notification.beep(1);
+	navigator.accelerometer.watchAcceleration(onSuccess, onError, options);
 }
-
+var options = { frequency: 3000 };
 
 function pesonalData() {
 	data = 'Name and Surname: Damian Dzierzak\n' +
@@ -43,4 +44,3 @@ function onError() {
     alert('onError!');
 }
 
-navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
