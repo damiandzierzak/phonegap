@@ -4,11 +4,10 @@ function init() {
 
 function onDeviceReady() {
 	navigator.notification.beep(1);
-	navigator.accelerometer.watchAcceleration(onSuccess, onError, options);
+	//navigator.accelerometer.watchAcceleration(onSuccess, onError, options);
 	
 
 }
-var options = { frequency: 3000 };
 
 function pesonalData() {
 	data = 'Name and Surname: Damian Dzierzak\n' +
@@ -20,6 +19,11 @@ function pesonalData() {
 }
 
 function contacts(){
+// find all contacts 
+var options = new ContactFindOptions();
+options.filter = "";
+options.multiple = true;
+var filter = ["displayName", "addresses"];
 	navigator.contacts.find(filter, onSuccessCon, onErrorCon, options);
 }
 
@@ -69,8 +73,4 @@ function onError(contactError) {
     alert('onError!');
 };
  
-// find all contacts 
-var options = new ContactFindOptions();
-options.filter = "";
-options.multiple = true;
-var filter = ["displayName", "addresses"];
+
